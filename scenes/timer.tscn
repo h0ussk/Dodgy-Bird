@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ok50xxuoutxr"]
+
+[ext_resource type="Script" uid="uid://c145ie7aswbjq" path="res://scripts/Timer.gd" id="1_6f0au"]
+
+[node name="Timer" type="Timer"]
+wait_time = 2.0
+autostart = true
+script = ExtResource("1_6f0au")
+phase_editor = Array[Array]([[1, 12, false]])
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

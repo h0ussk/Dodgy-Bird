@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cidq2e1u7o3ub"]
+
+[ext_resource type="FontFile" uid="uid://y004bedrr342" path="res://fonts/FredokaOne-Regular.otf" id="1_cbn6l"]
+
+[resource]
+font = ExtResource("1_cbn6l")
+font_size = 231
+font_color = Color(0, 1, 0, 1)
+outline_size = 45
+outline_color = Color(0, 0, 0, 1)

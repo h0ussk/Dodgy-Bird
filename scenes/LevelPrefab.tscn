@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8hsagpik885i"]
+
+[ext_resource type="Script" uid="uid://bu3t26writhu2" path="res://scripts/Main.gd" id="1_6tsn8"]
+[ext_resource type="PackedScene" uid="uid://nl8hpvmi6hwi" path="res://scenes/background.tscn" id="1_ih3ua"]
+[ext_resource type="PackedScene" uid="uid://dn7tj0se8ele6" path="res://scenes/border.tscn" id="2_h6lro"]
+[ext_resource type="PackedScene" uid="uid://drndwdc83vlx8" path="res://scenes/player.tscn" id="3_1gjg1"]
+[ext_resource type="PackedScene" uid="uid://ok50xxuoutxr" path="res://scenes/timer.tscn" id="4_jg4id"]
+
+[node name="LevelPrefab" type="Node"]
+script = ExtResource("1_6tsn8")
+
+[node name="Background" parent="." instance=ExtResource("1_ih3ua")]
+
+[node name="Border2" parent="." instance=ExtResource("2_h6lro")]
+
+[node name="Player" parent="." instance=ExtResource("3_1gjg1")]
+position = Vector2(324, 269)
+scale = Vector2(2, 2)
+
+[node name="Timer" parent="." instance=ExtResource("4_jg4id")]
+phase_editor = Array[Array]([[1, 1, true]])

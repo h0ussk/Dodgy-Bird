@@ -1,0 +1,478 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4prey5cq77lb"]
+
+[ext_resource type="Script" uid="uid://brvkcyx78i7jw" path="res://scripts/level_selection.gd" id="1_s5ibl"]
+[ext_resource type="FontFile" uid="uid://y004bedrr342" path="res://fonts/FredokaOne-Regular.otf" id="2_3ah4h"]
+[ext_resource type="Texture2D" uid="uid://cx18tt8n4khhp" path="res://textures/menuSegment.png" id="2_dq2nw"]
+[ext_resource type="Texture2D" uid="uid://c61xvji0cf7nh" path="res://textures/Background.png" id="2_tf5tw"]
+[ext_resource type="Texture2D" uid="uid://bh6v5y8mdlyv5" path="res://textures/menuSegment2.png" id="3_gapt7"]
+[ext_resource type="Texture2D" uid="uid://dfi21qymyskqi" path="res://textures/checkmark.png" id="4_538dk"]
+[ext_resource type="Texture2D" uid="uid://bvl6hq0kjhmmh" path="res://textures/Locked.png" id="5_bpek6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g15rf"]
+font = ExtResource("2_3ah4h")
+font_size = 128
+font_color = Color(0.984314, 0.94902, 0.211765, 1)
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpppa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ud1x4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vokfw"]
+
+[node name="levelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s5ibl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tf5tw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -450.0
+offset_right = 418.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Select Level"
+label_settings = SubResource("LabelSettings_g15rf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -581.0
+offset_top = -137.0
+offset_right = 581.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 253
+theme_override_constants/v_separation = 261
+columns = 5
+
+[node name="Panel" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="GridContainer/Panel"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qpppa")
+text = "1"
+flat = true
+metadata/locked = false
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel/Button"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel/Button"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Panel2" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="GridContainer/Panel2"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "2"
+flat = true
+metadata/locked = false
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel2/Button2"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel2/Button2"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel2/Button2"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel3" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="GridContainer/Panel3"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "3"
+flat = true
+metadata/locked = false
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel3/Button3"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel3/Button3"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel3/Button3"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel4" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="GridContainer/Panel4"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "4"
+flat = true
+metadata/locked = false
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel4/Button4"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel4/Button4"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel4/Button4"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel5" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="GridContainer/Panel5"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "5"
+flat = true
+metadata/locked = true
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel5/Button5"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel5/Button5"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel5/Button5"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel6" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="GridContainer/Panel6"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "6"
+flat = true
+metadata/locked = true
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel6/Button6"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel6/Button6"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel6/Button6"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel7" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="GridContainer/Panel7"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "7"
+flat = true
+metadata/locked = true
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel7/Button7"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel7/Button7"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel7/Button7"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel8" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button8" type="Button" parent="GridContainer/Panel8"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "8"
+flat = true
+metadata/locked = false
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel8/Button8"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel8/Button8"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel8/Button8"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel9" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button9" type="Button" parent="GridContainer/Panel9"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "9"
+flat = true
+metadata/locked = true
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel9/Button9"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel9/Button9"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel9/Button9"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel10" type="Panel" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Button10" type="Button" parent="GridContainer/Panel10"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ud1x4")
+disabled = true
+text = "10"
+flat = true
+metadata/locked = true
+
+[node name="MenuSegment" type="Sprite2D" parent="GridContainer/Panel10/Button10"]
+show_behind_parent = true
+position = Vector2(106.5, 103)
+scale = Vector2(4.47917, 4.29167)
+texture = ExtResource("2_dq2nw")
+
+[node name="Checkmark" type="Sprite2D" parent="GridContainer/Panel10/Button10"]
+visible = false
+position = Vector2(15, 4)
+scale = Vector2(9, 9)
+texture = ExtResource("4_538dk")
+
+[node name="Locked" type="Sprite2D" parent="GridContainer/Panel10/Button10"]
+position = Vector2(106.429, 102.857)
+scale = Vector2(6.74107, 6.42857)
+texture = ExtResource("5_bpek6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 70.0
+offset_bottom = 70.0
+
+[node name="BackButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 168.0
+offset_bottom = 168.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vokfw")
+flat = true
+
+[node name="MenuSegment2" type="Sprite2D" parent="Panel/BackButton"]
+show_behind_parent = true
+position = Vector2(84, 84)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("3_gapt7")
+
+[connection signal="pressed" from="GridContainer/Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/Panel2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="GridContainer/Panel3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="GridContainer/Panel4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="GridContainer/Panel5/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="GridContainer/Panel6/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="GridContainer/Panel7/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="GridContainer/Panel8/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="GridContainer/Panel9/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="GridContainer/Panel10/Button10" to="." method="_on_button_10_pressed"]

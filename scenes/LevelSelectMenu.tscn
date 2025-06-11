@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcfyr71t40boi"]
+
+[ext_resource type="Script" uid="uid://kckyvwdf477e" path="res://scripts/main_menu.gd" id="1_r6gbe"]
+[ext_resource type="PackedScene" uid="uid://c4prey5cq77lb" path="res://scenes/level_selection.tscn" id="2_2eo87"]
+[ext_resource type="Texture2D" uid="uid://c61xvji0cf7nh" path="res://textures/Background.png" id="2_51rp3"]
+[ext_resource type="PackedScene" uid="uid://p0o7udmpm6ri" path="res://scenes/mainscene.tscn" id="4_7g2d0"]
+[ext_resource type="PackedScene" uid="uid://dreqlh2v3aye" path="res://scenes/settings.tscn" id="5_0xbv6"]
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6gbe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_51rp3")
+
+[node name="levelSelection" parent="." instance=ExtResource("2_2eo87")]
+layout_mode = 1
+offset_top = 0.0
+offset_bottom = 0.0
+
+[node name="TextureRect" parent="levelSelection" index="0"]
+visible = true
+
+[node name="Settings" parent="." instance=ExtResource("5_0xbv6")]
+layout_mode = 1
+
+[node name="mainscene" parent="." instance=ExtResource("4_7g2d0")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="levelSelection/Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Settings/Panel2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Settings/Panel3/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="mainscene/Panel/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="mainscene/Panel3/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="mainscene/Panel2/Exit_Button" to="." method="_on_exit_button_pressed"]
+
+[editable path="levelSelection"]
+[editable path="Settings"]
+[editable path="mainscene"]

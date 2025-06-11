@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://b2ofhntsitgkv"]
+
+[ext_resource type="Script" uid="uid://bu3t26writhu2" path="res://scripts/Main.gd" id="1_0elq7"]
+[ext_resource type="PackedScene" uid="uid://drndwdc83vlx8" path="res://scenes/player.tscn" id="2_3n2sp"]
+[ext_resource type="Script" uid="uid://c145ie7aswbjq" path="res://scripts/Timer.gd" id="3_wdl4o"]
+[ext_resource type="Script" uid="uid://7m0w8kt4oky6" path="res://scripts/Border.gd" id="3_wiwgl"]
+[ext_resource type="Texture2D" uid="uid://c8n533xkmkh2u" path="res://textures/backround.png" id="4_h0b4o"]
+[ext_resource type="PackedScene" uid="uid://brlfmd6d5lxg2" path="res://scenes/lose_text.tscn" id="5_wpmll"]
+[ext_resource type="PackedScene" uid="uid://m5mhlllk0bkx" path="res://scenes/win_text.tscn" id="6_7iksl"]
+[ext_resource type="PackedScene" uid="uid://cbcfgqf2jvbfs" path="res://scenes/controls.tscn" id="7_2oylm"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7316l"]
+a = Vector2(-200, 1300)
+b = Vector2(-200, -110)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jevi2"]
+a = Vector2(-200, -110)
+b = Vector2(2100, -110)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qu0rt"]
+a = Vector2(2100, -110)
+b = Vector2(2100, 1300)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bakff"]
+a = Vector2(2100, 1300)
+b = Vector2(-200, 1300)
+
+[node name="LevelLayout" type="Node"]
+script = ExtResource("1_0elq7")
+
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_h0b4o")
+
+[node name="Player" parent="." instance=ExtResource("2_3n2sp")]
+z_index = 1
+position = Vector2(578, 326)
+scale = Vector2(3.5, 3.5)
+winCondition = 12
+level_id = 6
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+script = ExtResource("3_wdl4o")
+level_id = 6
+phase_editor = Array[Array]([[1, 2, false], [0, 4, false], [1, 1, false], [4, 1, false], [3, 1, false], [2, 1, false], [3, 1, false]])
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+script = ExtResource("3_wdl4o")
+level_id = 6
+phase_editor = Array[Array]([[4, 2, false], [4, 4, false], [0, 1, false], [4, 5, false], [2, 1, false]])
+
+[node name="Border" type="Area2D" parent="." groups=["border"]]
+script = ExtResource("3_wiwgl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_7316l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_jevi2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_qu0rt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_bakff")
+
+[node name="LoseText" parent="." instance=ExtResource("5_wpmll")]
+
+[node name="WinText" parent="." instance=ExtResource("6_7iksl")]
+
+[node name="Controls" parent="." instance=ExtResource("7_2oylm")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="Timer2" method="_on_timeout"]
+[connection signal="pressed" from="LoseText/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LoseText/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="WinText/Button" to="." method="_on_button_pressed"]
+
+[editable path="LoseText"]
+[editable path="WinText"]

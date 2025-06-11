@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://nl8hpvmi6hwi"]
+
+[ext_resource type="Texture2D" uid="uid://c8n533xkmkh2u" path="res://textures/backround.png" id="1_bkp1e"]
+
+[node name="Background" type="TextureRect"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bkp1e")

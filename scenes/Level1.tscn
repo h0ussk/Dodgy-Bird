@@ -1,0 +1,282 @@
+[gd_scene load_steps=20 format=3 uid="uid://bvcqxyaga2ili"]
+
+[ext_resource type="Script" uid="uid://bu3t26writhu2" path="res://scripts/Main.gd" id="1_a3fs0"]
+[ext_resource type="PackedScene" uid="uid://drndwdc83vlx8" path="res://scenes/player.tscn" id="2_ggukp"]
+[ext_resource type="PackedScene" uid="uid://dn7tj0se8ele6" path="res://scenes/border.tscn" id="2_ipmer"]
+[ext_resource type="FontFile" uid="uid://c6w6rcslyu043" path="res://fonts/FredokaOne-Regular.ttf" id="3_4yica"]
+[ext_resource type="PackedScene" uid="uid://nl8hpvmi6hwi" path="res://scenes/background.tscn" id="3_ipmer"]
+[ext_resource type="Texture2D" uid="uid://c0gcd44grhono" path="res://textures/ArrowLeftkeycap.png" id="4_0r312"]
+[ext_resource type="Texture2D" uid="uid://duc0dawswc20s" path="res://textures/Spacekeycap.png" id="4_ie2hn"]
+[ext_resource type="PackedScene" uid="uid://ok50xxuoutxr" path="res://scenes/timer.tscn" id="4_tussa"]
+[ext_resource type="Texture2D" uid="uid://esm1fhopmouc" path="res://textures/Akeycap.png" id="5_i36on"]
+[ext_resource type="PackedScene" uid="uid://m5mhlllk0bkx" path="res://scenes/win_text.tscn" id="5_qekxj"]
+[ext_resource type="PackedScene" uid="uid://brlfmd6d5lxg2" path="res://scenes/lose_text.tscn" id="6_cdwu7"]
+[ext_resource type="Texture2D" uid="uid://cj5aqxh3aqk8x" path="res://textures/ArrowRightkeycap.png" id="7_lm004"]
+[ext_resource type="PackedScene" uid="uid://cbcfgqf2jvbfs" path="res://scenes/controls.tscn" id="7_n8mm5"]
+[ext_resource type="Texture2D" uid="uid://iawnp5vomrgu" path="res://textures/Dkeycap.png" id="8_onb51"]
+[ext_resource type="Texture2D" uid="uid://bhgf8w3ua246k" path="res://textures/arrow.png" id="9_ljh1b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wjff"]
+font = ExtResource("3_4yica")
+font_size = 61
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_3q1yt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0356u"]
+resource_name = "fade_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_667ud"]
+_data = {
+&"RESET": SubResource("Animation_3q1yt"),
+&"fade_out": SubResource("Animation_0356u")
+}
+
+[node name="LevelLayout" type="Node"]
+script = ExtResource("1_a3fs0")
+
+[node name="Border2" parent="." instance=ExtResource("2_ipmer")]
+
+[node name="Background" parent="." instance=ExtResource("3_ipmer")]
+
+[node name="tutorialPc" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tutorial" type="Panel" parent="tutorialPc"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TellLeft" type="Label" parent="tutorialPc/tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.00390625
+offset_left = 570.0
+offset_top = 284.219
+offset_right = 859.0
+offset_bottom = 355.0
+text = "Move left"
+label_settings = SubResource("LabelSettings_7wjff")
+
+[node name="ArrowLeftkeycap" type="Sprite2D" parent="tutorialPc/tutorial/TellLeft"]
+position = Vector2(141, 314)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0r312")
+
+[node name="Akeycap" type="Sprite2D" parent="tutorialPc/tutorial/TellLeft"]
+position = Vector2(141, 134)
+scale = Vector2(3, 3)
+texture = ExtResource("5_i36on")
+
+[node name="TellJump" type="Label" parent="tutorialPc/tutorial"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.5
+offset_top = -150.0
+offset_right = 80.5
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Jump"
+label_settings = SubResource("LabelSettings_7wjff")
+
+[node name="Spacekeycap" type="Sprite2D" parent="tutorialPc/tutorial/TellJump"]
+position = Vector2(82, -87)
+scale = Vector2(3.48437, 3)
+texture = ExtResource("4_ie2hn")
+
+[node name="TellRight" type="Label" parent="tutorialPc/tutorial"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -870.0
+offset_top = 280.0
+offset_right = -551.0
+offset_bottom = 355.0
+grow_horizontal = 0
+text = "Move right"
+label_settings = SubResource("LabelSettings_7wjff")
+
+[node name="ArrowRightkeycap" type="Sprite2D" parent="tutorialPc/tutorial/TellRight"]
+position = Vector2(161, 316)
+scale = Vector2(3, 3)
+texture = ExtResource("7_lm004")
+
+[node name="Dkeycap" type="Sprite2D" parent="tutorialPc/tutorial/TellRight"]
+position = Vector2(161, 136)
+scale = Vector2(3, 3)
+texture = ExtResource("8_onb51")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tutorialPc"]
+libraries = {
+&"": SubResource("AnimationLibrary_667ud")
+}
+
+[node name="tutorialMobile" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tutorial" type="Panel" parent="tutorialMobile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TellLeft" type="Label" parent="tutorialMobile/tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.00390625
+offset_left = 261.0
+offset_top = 657.219
+offset_right = 550.0
+offset_bottom = 728.0
+text = "Move left"
+label_settings = SubResource("LabelSettings_7wjff")
+
+[node name="Arrow" type="Sprite2D" parent="tutorialMobile/tutorial/TellLeft"]
+show_behind_parent = true
+position = Vector2(44, 109)
+scale = Vector2(2.90625, 2.59375)
+texture = ExtResource("9_ljh1b")
+
+[node name="TellJump" type="Label" parent="tutorialMobile/tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -462.0
+offset_top = -504.0
+offset_right = -301.0
+offset_bottom = -429.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Jump"
+label_settings = SubResource("LabelSettings_7wjff")
+
+[node name="Arrow2" type="Sprite2D" parent="tutorialMobile/tutorial/TellJump"]
+show_behind_parent = true
+position = Vector2(200, 112)
+scale = Vector2(-2.906, 2.594)
+texture = ExtResource("9_ljh1b")
+
+[node name="TellRight" type="Label" parent="tutorialMobile/tutorial"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 722.0
+offset_top = -427.0
+offset_right = 1041.0
+offset_bottom = -352.0
+grow_vertical = 0
+text = "Move right"
+label_settings = SubResource("LabelSettings_7wjff")
+
+[node name="Arrow3" type="Sprite2D" parent="tutorialMobile/tutorial/TellRight"]
+show_behind_parent = true
+position = Vector2(0, 109)
+scale = Vector2(2.90625, 2.59375)
+texture = ExtResource("9_ljh1b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tutorialMobile"]
+libraries = {
+&"": SubResource("AnimationLibrary_667ud")
+}
+
+[node name="Player" parent="." instance=ExtResource("2_ggukp")]
+z_index = 1
+position = Vector2(284, 351)
+scale = Vector2(3.5, 3.5)
+winCondition = 12
+level_id = 1
+
+[node name="Timer" parent="." instance=ExtResource("4_tussa")]
+level_id = 1
+
+[node name="WinText" parent="." instance=ExtResource("5_qekxj")]
+
+[node name="LoseText" parent="." instance=ExtResource("6_cdwu7")]
+
+[node name="Controls" parent="." instance=ExtResource("7_n8mm5")]
+
+[connection signal="pressed" from="WinText/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LoseText/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LoseText/Button2" to="." method="_on_button_2_pressed"]
+
+[editable path="WinText"]
+[editable path="LoseText"]
+[editable path="Controls"]

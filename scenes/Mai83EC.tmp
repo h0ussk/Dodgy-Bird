@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://d04307lj4c023"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_b7s8v"]
+[ext_resource type="PackedScene" uid="uid://drndwdc83vlx8" path="res://scenes/player.tscn" id="2_udqvg"]
+[ext_resource type="Script" path="res://scenes/Timer.gd" id="3_hyjx7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3i0jl"]
+font_size = 56
+
+[node name="Node" type="Node"]
+script = ExtResource("1_b7s8v")
+speed = 400
+direction = 1
+
+[node name="Player" parent="." instance=ExtResource("2_udqvg")]
+position = Vector2(578, 326)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+script = ExtResource("3_hyjx7")
+speed = null
+direction = null
+
+[node name="Label" type="Label" parent="."]
+offset_right = 254.0
+offset_bottom = 94.0
+text = "Score:"
+label_settings = SubResource("LabelSettings_3i0jl")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

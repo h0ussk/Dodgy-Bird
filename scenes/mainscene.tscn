@@ -1,0 +1,204 @@
+[gd_scene load_steps=10 format=3 uid="uid://p0o7udmpm6ri"]
+
+[ext_resource type="FontFile" uid="uid://y004bedrr342" path="res://fonts/FredokaOne-Regular.otf" id="1_eaeum"]
+[ext_resource type="Texture2D" uid="uid://ouxm2efpdqk4" path="res://textures/MenuSegment3.png" id="2_2xjrc"]
+[ext_resource type="Texture2D" uid="uid://bl0m3j362e3na" path="res://textures/BirdOpen.png" id="2_cdico"]
+[ext_resource type="Texture2D" uid="uid://djf4preufg52p" path="res://textures/worm.png" id="3_61chk"]
+
+[sub_resource type="SystemFont" id="SystemFont_ijkfo"]
+font_names = PackedStringArray("Cursive")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_lutq1"]
+font = ExtResource("1_eaeum")
+font_size = 191
+font_color = Color(0.984314, 0.94902, 0.211765, 1)
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bd1wh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd588"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xodp"]
+
+[node name="mainscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -529.0
+offset_top = 132.0
+offset_right = 529.0
+offset_bottom = 365.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.490196)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_constants/shadow_outline_size = 32
+theme_override_fonts/font = SubResource("SystemFont_ijkfo")
+theme_override_font_sizes/font_size = 64
+text = "Dodgy bird"
+label_settings = SubResource("LabelSettings_lutq1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BirdOpen" type="Sprite2D" parent="Label"]
+show_behind_parent = true
+position = Vector2(42, 107)
+rotation = -0.261799
+scale = Vector2(-7, 7)
+texture = ExtResource("2_cdico")
+
+[node name="Worm" type="Sprite2D" parent="Label/BirdOpen"]
+show_behind_parent = true
+position = Vector2(22.3002, -5.08792)
+rotation = 3.40339
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("3_61chk")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = 10.0
+offset_right = 275.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bd1wh")
+
+[node name="MenuSegment3" type="Sprite2D" parent="Panel"]
+show_behind_parent = true
+position = Vector2(275, 104)
+scale = Vector2(10.2917, 10)
+texture = ExtResource("2_2xjrc")
+
+[node name="Start_Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -69.0
+offset_right = 235.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_eaeum")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cd588")
+text = "Start Game"
+flat = true
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = 218.0
+offset_right = 179.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bd1wh")
+
+[node name="MenuSegment3" type="Sprite2D" parent="Panel3"]
+show_behind_parent = true
+position = Vector2(179, 50.952)
+scale = Vector2(8.125, 7.494)
+texture = ExtResource("2_2xjrc")
+
+[node name="Settings_Button" type="Button" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -80.5
+offset_right = 235.0
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_eaeum")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cd588")
+text = "Settings"
+flat = true
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = 360.0
+offset_right = 111.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3xodp")
+
+[node name="MenuSegment4" type="Sprite2D" parent="Panel2"]
+show_behind_parent = true
+position = Vector2(110, 39)
+scale = Vector2(6.522, 6.738)
+texture = ExtResource("2_2xjrc")
+
+[node name="Exit_Button" type="Button" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -49.0002
+offset_right = 146.0
+offset_bottom = 48.9998
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_eaeum")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cd588")
+text = "Exit Game"
+flat = true

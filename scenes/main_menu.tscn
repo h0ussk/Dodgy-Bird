@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxdstow3fdol5"]
+
+[ext_resource type="Script" uid="uid://kckyvwdf477e" path="res://scripts/main_menu.gd" id="1_w7php"]
+[ext_resource type="Texture2D" uid="uid://c61xvji0cf7nh" path="res://textures/Background.png" id="2_ivxsn"]
+[ext_resource type="PackedScene" uid="uid://c4prey5cq77lb" path="res://scenes/level_selection.tscn" id="3_mrok5"]
+[ext_resource type="PackedScene" uid="uid://p0o7udmpm6ri" path="res://scenes/mainscene.tscn" id="3_xv7f4"]
+[ext_resource type="PackedScene" uid="uid://dreqlh2v3aye" path="res://scenes/settings.tscn" id="5_eeykp"]
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w7php")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ivxsn")
+
+[node name="levelSelection" parent="." instance=ExtResource("3_mrok5")]
+visible = false
+layout_mode = 1
+offset_top = 0.0
+offset_bottom = 0.0
+
+[node name="mainscene" parent="." instance=ExtResource("3_xv7f4")]
+layout_mode = 1
+
+[node name="Settings_Button" parent="mainscene/Panel3" index="1"]
+offset_left = -183.0
+offset_top = -61.5
+offset_right = 183.0
+offset_bottom = 48.5
+
+[node name="Settings" parent="." instance=ExtResource("5_eeykp")]
+layout_mode = 1
+
+[connection signal="pressed" from="levelSelection/Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="mainscene/Panel/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="mainscene/Panel3/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="mainscene/Panel2/Exit_Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Settings/Panel2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Settings/Panel3/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="levelSelection"]
+[editable path="mainscene"]
+[editable path="Settings"]

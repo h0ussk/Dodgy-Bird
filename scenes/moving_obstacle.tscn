@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4whyoyd32qrl"]
+
+[ext_resource type="Script" uid="uid://2ykclp6ewyci" path="res://scripts/moving_obstacle.gd" id="1_uesf0"]
+[ext_resource type="Texture2D" uid="uid://13lihtgojncp" path="res://textures/Log.png" id="2_nex7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0428g"]
+size = Vector2(20, 64)
+
+[node name="movingObstacle" type="CharacterBody2D"]
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_uesf0")
+direction = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_nex7f")
+
+[node name="Area2D" type="Area2D" parent="." groups=["obstacle"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0428g")

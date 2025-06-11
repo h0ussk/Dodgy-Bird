@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://oupymbncpioe"]
+
+[ext_resource type="Script" uid="uid://ccbpwv1ck02ip" path="res://scripts/audioManager.gd" id="1_upb0s"]
+[ext_resource type="AudioStream" uid="uid://bginkbu8govup" path="res://SoundEffects/success_bell-6776.mp3" id="2_6unss"]
+[ext_resource type="AudioStream" uid="uid://c1d3x8e7wpq1f" path="res://SoundEffects/wing-flap-1-6434.mp3" id="3_tl3kl"]
+[ext_resource type="AudioStream" uid="uid://dsxtmpbo8sh1" path="res://SoundEffects/short-success-sound-glockenspiel-treasure-video-game-6346.mp3" id="4_iapbg"]
+[ext_resource type="AudioStream" uid="uid://c1gg258uafkyy" path="res://SoundEffects/loseSoundFirstHalf.mp3" id="5_vfatn"]
+[ext_resource type="AudioStream" uid="uid://b1yxhcs026gv4" path="res://SoundEffects/loseSoundSecondHalf.mp3" id="6_qi4vb"]
+[ext_resource type="AudioStream" uid="uid://dhtwli5wb60ly" path="res://SoundEffects/acceptMenuSound.mp3" id="7_4a1xa"]
+[ext_resource type="AudioStream" uid="uid://7smxchi21ove" path="res://SoundEffects/denyMenuSound.mp3" id="8_7gm1d"]
+[ext_resource type="AudioStream" uid="uid://ckpoxfcxpv3ui" path="res://SoundEffects/volumeCheckSound.mp3" id="9_enoh2"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_upb0s")
+
+[node name="ScoreUpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6unss")
+max_polyphony = 5
+
+[node name="FlapAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tl3kl")
+volume_db = -4.0
+max_polyphony = 5
+
+[node name="WinAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_iapbg")
+max_polyphony = 5
+
+[node name="LoseAudio1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vfatn")
+volume_db = -8.0
+max_polyphony = 5
+
+[node name="LoseAudio2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qi4vb")
+max_polyphony = 5
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4a1xa")
+volume_db = -4.0
+max_polyphony = 5
+
+[node name="Deny" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7gm1d")
+volume_db = 6.0
+max_polyphony = 5
+
+[node name="VolumeCheck" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_enoh2")
+max_polyphony = 5
+
+[connection signal="finished" from="LoseAudio1" to="." method="_on_lose_audio_1_finished"]

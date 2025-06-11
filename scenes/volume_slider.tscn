@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn78cqvthiojl"]
+
+[ext_resource type="Script" uid="uid://bcy7nem5sffay" path="res://scripts/volume_slider.gd" id="1_rbp51"]
+
+[node name="HSlider" type="HSlider"]
+offset_left = 85.62
+offset_top = -7.62
+offset_right = 611.6
+offset_bottom = 10.38
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_rbp51")
+bus_name = "Master"

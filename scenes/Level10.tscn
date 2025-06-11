@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://bpuc2caucghjm"]
+
+[ext_resource type="Script" uid="uid://bu3t26writhu2" path="res://scripts/Main.gd" id="1_ljfk5"]
+[ext_resource type="PackedScene" uid="uid://drndwdc83vlx8" path="res://scenes/player.tscn" id="2_iljea"]
+[ext_resource type="Script" uid="uid://c145ie7aswbjq" path="res://scripts/Timer.gd" id="3_dw4ne"]
+[ext_resource type="Texture2D" uid="uid://c8n533xkmkh2u" path="res://textures/backround.png" id="4_345t0"]
+[ext_resource type="PackedScene" uid="uid://m5mhlllk0bkx" path="res://scenes/win_text.tscn" id="5_etx24"]
+[ext_resource type="Script" uid="uid://7m0w8kt4oky6" path="res://scripts/Border.gd" id="5_t0g7t"]
+[ext_resource type="PackedScene" uid="uid://brlfmd6d5lxg2" path="res://scenes/lose_text.tscn" id="6_i7co8"]
+[ext_resource type="PackedScene" uid="uid://cbcfgqf2jvbfs" path="res://scenes/controls.tscn" id="7_3oi5v"]
+[ext_resource type="PackedScene" uid="uid://dubmfl7eiufcg" path="res://scenes/timer_double.tscn" id="9_pdta7"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7316l"]
+a = Vector2(-200, 1300)
+b = Vector2(-200, -110)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jevi2"]
+a = Vector2(-200, -110)
+b = Vector2(2100, -110)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qu0rt"]
+a = Vector2(2100, -110)
+b = Vector2(2100, 1300)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bakff"]
+a = Vector2(2100, 1300)
+b = Vector2(-200, 1300)
+
+[node name="LevelLayout" type="Node"]
+script = ExtResource("1_ljfk5")
+
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_345t0")
+
+[node name="Player" parent="." instance=ExtResource("2_iljea")]
+z_index = 1
+position = Vector2(578, 326)
+scale = Vector2(3.5, 3.5)
+level_id = 10
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+script = ExtResource("3_dw4ne")
+level_id = 10
+phase_editor = Array[Array]([[0, 1, 540.0], [4, 1, false], [4, 1, -1000.0], [4, 1, -1000.0], [4, 1, false], [2, 4, false], [3, 2, false], [1, 5, false]])
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+script = ExtResource("3_dw4ne")
+level_id = 10
+phase_editor = Array[Array]([[3, 1, 1500.0], [2, 1, 400.0], [4, 1, -1000.0], [4, 1, -1000.0], [4, 9, false], [0, 5, false]])
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+script = ExtResource("3_dw4ne")
+level_id = 10
+phase_editor = Array[Array]([[2, 1, 1500.0], [3, 1, 400.0]])
+
+[node name="Border" type="Area2D" parent="." groups=["border"]]
+script = ExtResource("5_t0g7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_7316l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_jevi2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_qu0rt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_bakff")
+
+[node name="WinText" parent="." instance=ExtResource("5_etx24")]
+
+[node name="LoseText" parent="." instance=ExtResource("6_i7co8")]
+
+[node name="Controls" parent="." instance=ExtResource("7_3oi5v")]
+
+[node name="TimerDouble" parent="." instance=ExtResource("9_pdta7")]
+level_id = 10
+phase_editor = Array[Array]([[4, 4, 2, Vector2(-1000, -1000)], [1, 3, 1, Vector2(1192, 171)], [0, 3, 1, Vector2(431, 697)]])
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(431, 697)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="Timer2" method="_on_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer3" to="Timer3" method="_on_timeout"]
+[connection signal="pressed" from="WinText/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LoseText/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LoseText/Button2" to="." method="_on_button_2_pressed"]
+
+[editable path="WinText"]
+[editable path="LoseText"]

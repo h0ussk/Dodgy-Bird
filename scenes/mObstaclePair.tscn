@@ -1,0 +1,161 @@
+[gd_scene load_steps=12 format=3 uid="uid://5ryivsc6uldu"]
+
+[ext_resource type="Script" uid="uid://2ykclp6ewyci" path="res://scripts/moving_obstacle.gd" id="1_od2la"]
+[ext_resource type="Texture2D" uid="uid://djf4preufg52p" path="res://textures/worm.png" id="3_pf51w"]
+[ext_resource type="Texture2D" uid="uid://13lihtgojncp" path="res://textures/Log.png" id="4_y200n"]
+[ext_resource type="Texture2D" uid="uid://cyexrls3bnlgy" path="res://textures/LogEnd.png" id="5_52gnc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hll3s"]
+size = Vector2(18, 1059)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na7qg"]
+size = Vector2(18, 1029)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3ljg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfpvt"]
+size = Vector2(20, 95)
+
+[sub_resource type="Animation" id="Animation_uwsdm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ylsh8"]
+resource_name = "wiggle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.00116134, 0.00552427),
+"update": 1,
+"values": [Vector2(-1.5, 1.5), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yvw8d"]
+_data = {
+&"RESET": SubResource("Animation_uwsdm"),
+&"wiggle": SubResource("Animation_ylsh8")
+}
+
+[node name="MovingObstaclePair" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_od2la")
+speed = 250.0
+
+[node name="ObstaclePart1" type="Sprite2D" parent="."]
+
+[node name="LogTexture" type="TextureRect" parent="ObstaclePart1"]
+anchors_preset = -1
+anchor_left = -93.0
+anchor_top = -30.0
+anchor_right = -92.528
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_top = -91.0
+offset_right = 125.528
+offset_bottom = 909.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, -1)
+texture = ExtResource("4_y200n")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LogEndTexture" type="TextureRect" parent="ObstaclePart1"]
+anchors_preset = -1
+anchor_left = 75.003
+anchor_right = 75.003
+offset_left = -44.003
+offset_top = -57.0
+offset_right = 19.997
+offset_bottom = 7.0
+scale = Vector2(-1, -1)
+texture = ExtResource("5_52gnc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="ObstaclePart1" groups=["obstacle"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstaclePart1/Area2D"]
+position = Vector2(0, -622.5)
+shape = SubResource("RectangleShape2D_hll3s")
+
+[node name="ObstaclePart2" type="Sprite2D" parent="."]
+
+[node name="LogTexture" type="TextureRect" parent="ObstaclePart2"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -337.5
+anchor_right = 0.5
+anchor_bottom = 338.5
+offset_left = -31.5
+offset_top = 458.5
+offset_right = 32.5
+offset_bottom = 782.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_y200n")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LogEndTexture" type="TextureRect" parent="ObstaclePart2"]
+anchors_preset = -1
+anchor_left = 75.9
+anchor_top = -1.0
+anchor_right = 76.0
+anchor_bottom = -1.0
+offset_left = -106.9
+offset_top = 58.0
+offset_right = -43.0
+offset_bottom = 122.0
+texture = ExtResource("5_52gnc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="ObstaclePart2" groups=["obstacle"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstaclePart2/Area2D"]
+position = Vector2(0, 606.5)
+shape = SubResource("RectangleShape2D_na7qg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_d3ljg")
+disabled = true
+
+[node name="Worm" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Worm" groups=["goal"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worm/Area2D"]
+shape = SubResource("RectangleShape2D_jfpvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Worm"]
+scale = Vector2(-1, 1)
+skew = -3.5882e-05
+texture = ExtResource("3_pf51w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Worm"]
+libraries = {
+"": SubResource("AnimationLibrary_yvw8d")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Worm/Area2D" to="." method="_on_area_2d_area_entered"]
