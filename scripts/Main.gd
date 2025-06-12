@@ -20,13 +20,13 @@ var level10Cleared: bool
 
 func _ready():
 	if tutorialScreen:
-		if playTutorial == true:
+		if playTutorial:
 			tutorialScreen.visible = true
 		else:
 			tutorialScreen.visible = false
 
 func _input(event):
-	if event.is_pressed() and playTutorial == true and tutorialScreen:
+	if event.is_pressed() and playTutorial and tutorialScreen:
 		animation.play("fade_out")
 		playTutorial = false
 

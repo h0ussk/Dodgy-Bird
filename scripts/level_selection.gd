@@ -2,43 +2,43 @@ extends Control
 
 func _ready():
 	Main.load_data()
-	if Main.level1Cleared == true:
+	if Main.level1Cleared:
 		$GridContainer/Panel/Button/Checkmark.visible = true
 		$GridContainer/Panel2/Button2/Locked.visible = false
 		$GridContainer/Panel2/Button2.disabled = false
-	if Main.level2Cleared == true:
+	if Main.level2Cleared:
 		$GridContainer/Panel2/Button2/Checkmark.visible = true
 		$GridContainer/Panel3/Button3/Locked.visible = false
 		$GridContainer/Panel3/Button3.disabled = false
-	if Main.level3Cleared == true:
+	if Main.level3Cleared:
 		$GridContainer/Panel3/Button3/Checkmark.visible = true
 		$GridContainer/Panel4/Button4/Locked.visible = false
 		$GridContainer/Panel4/Button4.disabled = false
-	if Main.level4Cleared == true:
+	if Main.level4Cleared:
 		$GridContainer/Panel4/Button4/Checkmark.visible = true
 		$GridContainer/Panel5/Button5/Locked.visible = false
 		$GridContainer/Panel5/Button5.disabled = false
-	if Main.level5Cleared == true:
+	if Main.level5Cleared:
 		$GridContainer/Panel5/Button5/Checkmark.visible = true
 		$GridContainer/Panel6/Button6/Locked.visible = false
 		$GridContainer/Panel6/Button6.disabled = false
-	if Main.level6Cleared == true:
+	if Main.level6Cleared:
 		$GridContainer/Panel6/Button6/Checkmark.visible = true
 		$GridContainer/Panel7/Button7/Locked.visible = false
 		$GridContainer/Panel7/Button7.disabled = false
-	if Main.level7Cleared == true:
+	if Main.level7Cleared:
 		$GridContainer/Panel7/Button7/Checkmark.visible = true
 		$GridContainer/Panel8/Button8/Locked.visible = false
 		$GridContainer/Panel8/Button8.disabled = false
-	if Main.level8Cleared == true:
+	if Main.level8Cleared:
 		$GridContainer/Panel8/Button8/Checkmark.visible = true
 		$GridContainer/Panel9/Button9/Locked.visible = false
 		$GridContainer/Panel9/Button9.disabled = false
-	if Main.level9Cleared == true:
+	if Main.level9Cleared:
 		$GridContainer/Panel9/Button9/Checkmark.visible = true
 		$GridContainer/Panel10/Button10/Locked.visible = false
 		$GridContainer/Panel10/Button10.disabled = false
-	if Main.level10Cleared == true:
+	if Main.level10Cleared:
 		$GridContainer/Panel10/Button10/Checkmark.visible = true
 		
 
