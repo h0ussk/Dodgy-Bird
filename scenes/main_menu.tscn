@@ -33,6 +33,19 @@ offset_bottom = 0.0
 [node name="mainscene" parent="." instance=ExtResource("3_xv7f4")]
 layout_mode = 1
 
+[node name="Label" parent="mainscene" index="0"]
+anchors_preset = 10
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 233.0
+vertical_alignment = 3
+
+[node name="BirdOpen" parent="mainscene/Label" index="0"]
+position = Vector2(47, 112)
+
 [node name="Settings_Button" parent="mainscene/Panel3" index="1"]
 offset_left = -183.0
 offset_top = -61.5

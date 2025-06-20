@@ -25,6 +25,8 @@ AudioManager="*res://scenes/audioManager.tscn"
 
 [display]
 
+window/size/viewport_width=1732
+window/size/viewport_height=1293
 window/size/extend_to_title=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
