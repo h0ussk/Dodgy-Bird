@@ -38,28 +38,22 @@ anchors_preset = 10
 anchor_left = 0.0
 anchor_right = 1.0
 offset_left = 0.0
-offset_top = 0.0
+offset_top = 158.0
 offset_right = 0.0
-offset_bottom = 233.0
+offset_bottom = 456.0
 vertical_alignment = 3
 
 [node name="BirdOpen" parent="mainscene/Label" index="0"]
-position = Vector2(47, 112)
-
-[node name="Settings_Button" parent="mainscene/Panel3" index="1"]
-offset_left = -183.0
-offset_top = -61.5
-offset_right = 183.0
-offset_bottom = 48.5
+position = Vector2(428, 112)
 
 [node name="Settings" parent="." instance=ExtResource("5_eeykp")]
 layout_mode = 1
 
 [connection signal="pressed" from="levelSelection/Panel/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="mainscene/Panel/Start_Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="mainscene/Panel3/Settings_Button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="mainscene/Panel2/Exit_Button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Settings/Panel2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="mainscene/PanelContainer/VBoxContainer/Start button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="mainscene/PanelContainer/VBoxContainer/Settings button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="mainscene/PanelContainer/VBoxContainer/Exit button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Settings/Panel2/Button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Settings/Panel3/BackButton" to="." method="_on_back_button_pressed"]
 
 [editable path="levelSelection"]

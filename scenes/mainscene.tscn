@@ -1,9 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://p0o7udmpm6ri"]
 
 [ext_resource type="FontFile" uid="uid://y004bedrr342" path="res://fonts/FredokaOne-Regular.otf" id="1_eaeum"]
-[ext_resource type="Texture2D" uid="uid://ouxm2efpdqk4" path="res://textures/MenuSegment3.png" id="2_2xjrc"]
 [ext_resource type="Texture2D" uid="uid://bl0m3j362e3na" path="res://textures/BirdOpen.png" id="2_cdico"]
 [ext_resource type="Texture2D" uid="uid://djf4preufg52p" path="res://textures/worm.png" id="3_61chk"]
+[ext_resource type="StyleBox" uid="uid://daabo0s5w8526" path="res://themes/buttonPressed.tres" id="5_nshjd"]
+[ext_resource type="StyleBox" uid="uid://dc7ivcs3lpgoe" path="res://themes/button.tres" id="6_hpy2g"]
 
 [sub_resource type="SystemFont" id="SystemFont_ijkfo"]
 font_names = PackedStringArray("Cursive")
@@ -16,11 +17,35 @@ font_color = Color(0.984314, 0.94902, 0.211765, 1)
 outline_size = 50
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bd1wh"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd588"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xodp"]
+[sub_resource type="Theme" id="Theme_ao358"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 45
+Button/fonts/font = ExtResource("1_eaeum")
+Button/styles/disabled = ExtResource("5_nshjd")
+Button/styles/focus = ExtResource("6_hpy2g")
+Button/styles/hover = ExtResource("6_hpy2g")
+Button/styles/normal = ExtResource("6_hpy2g")
+Button/styles/pressed = ExtResource("5_nshjd")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_rtw2f")
+VBoxContainer/constants/separation = 46
 
 [node name="mainscene" type="Control"]
 layout_mode = 3
@@ -65,140 +90,35 @@ rotation = 3.40339
 scale = Vector2(0.5, -0.5)
 texture = ExtResource("3_61chk")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = 10.0
-offset_right = 275.0
-offset_bottom = 210.0
+anchor_bottom = 1.0
+offset_left = -435.0
+offset_top = -513.0
+offset_right = 435.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_bd1wh")
+grow_vertical = 0
+theme = SubResource("Theme_ao358")
 
-[node name="MenuSegment3" type="Sprite2D" parent="Panel"]
-show_behind_parent = true
-position = Vector2(275, 104)
-scale = Vector2(10.2917, 10)
-texture = ExtResource("2_2xjrc")
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 
-[node name="Start_Button" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -235.0
-offset_top = -69.0
-offset_right = 235.0
-offset_bottom = 79.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 0
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_eaeum")
-theme_override_font_sizes/font_size = 55
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cd588")
+[node name="Start button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Start Game"
-flat = true
 
-[node name="Panel3" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -179.0
-offset_top = 218.0
-offset_right = 179.0
-offset_bottom = 329.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_bd1wh")
-
-[node name="MenuSegment3" type="Sprite2D" parent="Panel3"]
-show_behind_parent = true
-position = Vector2(179, 50.952)
-scale = Vector2(8.125, 7.494)
-texture = ExtResource("2_2xjrc")
-
-[node name="Settings_Button" type="Button" parent="Panel3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -235.0
-offset_top = -80.5
-offset_right = 235.0
-offset_bottom = 67.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 0
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_eaeum")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cd588")
+[node name="Settings button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Settings"
-flat = true
 
-[node name="Panel2" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -111.0
-offset_top = 360.0
-offset_right = 111.0
-offset_bottom = 438.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_3xodp")
-
-[node name="MenuSegment4" type="Sprite2D" parent="Panel2"]
-show_behind_parent = true
-position = Vector2(110, 39)
-scale = Vector2(6.522, 6.738)
-texture = ExtResource("2_2xjrc")
-
-[node name="Exit_Button" type="Button" parent="Panel2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -49.0002
-offset_right = 146.0
-offset_bottom = 48.9998
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 0
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_eaeum")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cd588")
+[node name="Exit button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Exit Game"
-flat = true

@@ -4,7 +4,7 @@ extends Control
 @onready var select = $levelSelection
 @onready var settings = $Settings
 
-func _on_start_button_pressed():
+func _on_play_button_pressed():
 	menu.visible = false
 	select.visible = true
 	AudioManager.playAudio("Accept")
@@ -20,7 +20,7 @@ func _on_back_button_pressed():
 	AudioManager.playAudio("Deny")
 
 
-func _on_button_pressed():
+func _on_reset_button_pressed():
 	Main.reset_data()
 	AudioManager.playAudio("Deny")
 	pass
