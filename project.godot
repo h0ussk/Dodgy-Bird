@@ -34,6 +34,15 @@ window/stretch/aspect="keep_height"
 mouse_cursor/custom_image="res://textures/cusror.png"
 mouse_cursor/custom_image_hotspot=Vector2(11, 12)
 
+[file_customization]
+
+folder_colors={
+"res://SoundEffects/": "purple",
+"res://scenes/": "blue",
+"res://scripts/": "red",
+"res://textures/": "green"
+}
+
 [importer_defaults]
 
 texture={
